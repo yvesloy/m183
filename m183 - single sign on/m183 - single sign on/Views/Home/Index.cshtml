@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script>
+    function onSignIn(googleUser) {
+        //console.log(googleUser);
+        //var id_token = googleUser.getAuthPesponse().id_token;
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        //console.log('Id-Token: ' + id_token); // This is null if the 'email' scope is not present.
+    }
+</script>
+
+<div class="row">
+    <div class="col-md 8 col-md-offset-2">
+        <br/><br/>
+        <legend>Log In</legend>
+        <form>
+            <label>Username</label>
+            <input type="text" class="form-control"/>
+
+            <br/>
+            <label>Password</label>
+            <input type="password" class="form-control"/>
+
+            <br/>
+            <input type="submit" class="btn btn-primary"/>
+
+            <br/>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+        </form>
+    </div>
+</div>
